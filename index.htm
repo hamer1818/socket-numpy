@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="tr">
+    <head>
+        <title>2x2 Matris</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+        <style>
+        .container{
+            margin-top: 50px;
+
+        }
+        textarea{
+            width: 100%;
+            height: 100%;
+            resize: none;
+            overflow: hidden;
+            border: none;
+            background-color: #343a40;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .accordion-body{
+            background-color: #343a40;
+        }
+        h2{
+            color: white;
+        }
+        h1{
+            color: rgb(255, 0, 0);
+            text-align: center;
+        }
+        .hesaplaButon{
+            width: 100%;
+            height: 100%;
+            background-color: #343a40;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+        }
+        .hesaplaButon:hover{
+            background-color: #feffff;
+            color: rgb(70, 2, 2);
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+        }
+        .hesaplaButon:active{
+            background-color: #28d3d3;
+            color: rgb(70, 2, 2);
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+        }
+        .nav-tabs{
+            background-color: #343a40;
+        }
+        .nav-link{
+            color: white;
+        }
+        .nav-link:hover{
+            color: #28d3d3;
+        }
+        .nav-link:active{
+            color: #28d3d3;
+        }
+        .nav-link:focus{
+            color: #28d3d3;
+        }
+        .tab-content , .tab-pane{
+            background-color: #343a40;
+        }
+        .randomButon{
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            color: rgb(54, 51, 51);
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+        }
+        .randomButon:hover{
+            background-color: #808080;
+            color: rgb(70, 2, 2);
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+        }
+        .randomText{
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            color: rgb(54, 51, 51);
+            font-size: 110px;
+            font-weight: bold;
+            border: none;
+            text-align: center;
+
+        }
+        body{
+            background-color: #343a40;
+        }
+
+
+        </style>
+      </head>
+      <body>
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-bs-toggle="tab" href="#home">Matrix Determinant</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" href="#menu1">Random Number Generator</a>
+    </li>
+  </ul>
+  
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div class="tab-pane container active" id="home">                    
+        <div class="container">
+        <h2>2x2 Matris</h2>
+        <table class="table table-dark table-striped" >
+          <tbody>
+            <tr>
+              <td><input value="0" type="text" name="2x2matrix" id="2x2matrix1" placeholder="satır1 - sütun1"></td>
+              <td><input value="0" type="text" name="2x2matrix" id="2x2matrix2" placeholder="satır1 - sütun2"></td>
+            </tr>
+            <tr>
+              <td><input value="0" type="text" name="2x2matrix" id="2x2matrix3" placeholder="satır2 - sütun1"></td>
+              <td><input value="0" type="text" name="2x2matrix" id="2x2matrix4" placeholder="satır2 - sütun2"></td>
+            </tr>
+            <tr>
+                <td><input class="hesaplaButon" type="button" id="2x2determinantBtn" value="Determinantı Hesapla "></td>
+                <td><textarea class="2x2det" disabled></textarea></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="container">
+        <h2>3x3 Matris</h2>
+        <table class="table table-dark table-striped">
+          <tbody>
+            <tr>
+                  <td><input value="0" type="text" name="3x3matrix" id="3x3matrix1" placeholder="satır1 - sütun1"></td>
+                  <td><input value="0" type="text" name="3x3matrix" id="3x3matrix2" placeholder="satır1 - sütun2"></td>
+                  <td><input value="0" type="text" name="3x3matrix" id="3x3matrix3" placeholder="satır1 - sütun3"></td>
+            </tr>
+            <tr>
+                  <td><input value="0" type="text" name="3x3matrix" id="3x3matrix4" placeholder="satır2 - sütun1"></td>
+                  <td><input value="0" type="text" name="3x3matrix" id="3x3matrix5" placeholder="satır2 - sütun2"></td>
+                  <td><input value="0" type="text" name="3x3matrix" id="3x3matrix6" placeholder="satır2 - sütun3"></td>
+            </tr>
+            <tr>
+                  <td><input value="0" type="text" name="3x3matrix" id="3x3matrix7" placeholder="satır3 - sütun1"></td>
+                  <td><input value="0" type="text" name="3x3matrix" id="3x3matrix8" placeholder="satır3 - sütun2"></td>
+                  <td><input value="0" type="text" name="3x3matrix" id="3x3matrix9" placeholder="satır3 - sütun3"></td>
+            </tr>
+            <tr>
+                  <td><input class="hesaplaButon" type="button" id="3x3determinantBtn" value="Determinantı Hesapla "></td>
+                  <td colspan="2"><textarea class="3x3det" disabled></textarea></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="container">
+          <h2>4x4 Matris</h2>
+          <table class="table table-dark table-striped">
+            <tbody>
+              <tr>
+                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix1" placeholder="satır1 - sütun1"></td>
+                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix2" placeholder="satır1 - sütun2"></td>
+                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix3" placeholder="satır1 - sütun3"></td>
+                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix4" placeholder="satır1 - sütun4"></td>
+              </tr>
+              <tr>
+                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix5" placeholder="satır2 - sütun1"></td>
+                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix6" placeholder="satır2 - sütun2"></td>
+                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix7" placeholder="satır2 - sütun3"></td>
+                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix8" placeholder="satır2 - sütun4"></td>
+              </tr>
+              <tr>
+                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix9" placeholder="satır3 - sütun1"></td>
+                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix10" placeholder="satır3 - sütun2"></td>
+                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix11" placeholder="satır3 - sütun3"></td>
+                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix12" placeholder="satır3 - sütun4"></td>
+              </tr>
+              <tr>
+                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix13" placeholder="satır4 - sütun1"></td>
+                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix14" placeholder="satır4 - sütun2"></td>
+                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix15" placeholder="satır4 - sütun3"></td>
+                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix16" placeholder="satır4 - sütun4"></td>
+              </tr>
+              <tr>
+                    <td><input class="hesaplaButon" type="button" id="4x4determinantBtn" value="Determinantı Hesapla "></td>
+                    <td colspan="3"><textarea class="4x4det" disabled></textarea></td>
+              </tr>
+            </tbody>
+          </table>
+        </div></div>
+    <div class="tab-pane container fade" id="menu1">
+        <input class="randomText" type="text" placeholder="1-x arası sayı girin" id="randomText">
+        <input class="randomButon" type="button" value="random" id="random">
+        <textarea name="randomSonuc" id="randomSonuc" cols="1" rows="1" style="font-size: 150px; text-align: center;"></textarea></div>
+
+  </div>
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+      </body>
+<script src="https://cdn.socket.io/3.1.3/socket.io.min.js" integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh" crossorigin="anonymous"></script>
+<script >
+    $( document ).ready(function() {
+        console.log( "ready!" );
+        
+
+        const socket = io("http://localhost:8081",{transports: ["websocket", "polling", "flashsocket"] ,path:"/ws/socket.io"});
+        // "+" butonuna basıldığında para değişkenini 1 arttıran kodu dinler
+        socket.on("2x2determinant",data=> { 
+                console.log(data); 
+                $(".2x2det").val(data);
+        });
+        socket.on("3x3determinant",data=> { 
+                console.log(data); 
+                $(".3x3det").val(data);
+        });
+        socket.on("4x4determinant",data=> { 
+                console.log(data); 
+                $(".4x4det").val(data);
+        });
+        socket.on("random",data=> { 
+                console.log(data); 
+                $("#randomSonuc").val(data);
+        })
+
+
+        
+        // "+" butonuna basıldığında para değişkenini pythona gönderen kod
+        $("#2x2determinantBtn").on("click",function(){
+            let sayi1 = $("#2x2matrix1").val();
+            let sayi2 = $("#2x2matrix2").val();
+            let sayi3 = $("#2x2matrix3").val();
+            let sayi4 = $("#2x2matrix4").val();
+            sayi1 = parseInt(sayi1);
+            sayi2 = parseInt(sayi2);
+            sayi3 = parseInt(sayi3);
+            sayi4 = parseInt(sayi4);
+            socket.emit("2x2determinant", [[sayi1,sayi2],[sayi3,sayi4]]);  
+        })
+        $("#3x3determinantBtn").on("click",function(){
+            let sayi1 = $("#3x3matrix1").val();
+            let sayi2 = $("#3x3matrix2").val();
+            let sayi3 = $("#3x3matrix3").val();
+            let sayi4 = $("#3x3matrix4").val();
+            let sayi5 = $("#3x3matrix5").val();
+            let sayi6 = $("#3x3matrix6").val();
+            let sayi7 = $("#3x3matrix7").val();
+            let sayi8 = $("#3x3matrix8").val();
+            let sayi9 = $("#3x3matrix9").val();
+            sayi1 = parseInt(sayi1);
+            sayi2 = parseInt(sayi2);
+            sayi3 = parseInt(sayi3);
+            sayi4 = parseInt(sayi4);
+            sayi5 = parseInt(sayi5);
+            sayi6 = parseInt(sayi6);
+            sayi7 = parseInt(sayi7);
+            sayi8 = parseInt(sayi8);
+            sayi9 = parseInt(sayi9);
+            socket.emit("3x3determinant", [[sayi1,sayi2,sayi3],[sayi4,sayi5,sayi6],[sayi7,sayi8,sayi9]]);  
+        })
+        $("#4x4determinantBtn").on("click",function(){
+            let sayi1 = $("#4x4matrix1").val();
+            let sayi2 = $("#4x4matrix2").val();
+            let sayi3 = $("#4x4matrix3").val();
+            let sayi4 = $("#4x4matrix4").val();
+            let sayi5 = $("#4x4matrix5").val();
+            let sayi6 = $("#4x4matrix6").val();
+            let sayi7 = $("#4x4matrix7").val();
+            let sayi8 = $("#4x4matrix8").val();
+            let sayi9 = $("#4x4matrix9").val();
+            let sayi10 = $("#4x4matrix10").val();
+            let sayi11 = $("#4x4matrix11").val();
+            let sayi12 = $("#4x4matrix12").val();
+            let sayi13 = $("#4x4matrix13").val();
+            let sayi14 = $("#4x4matrix14").val();
+            let sayi15 = $("#4x4matrix15").val();
+            let sayi16 = $("#4x4matrix16").val();
+            sayi1 = parseInt(sayi1);
+            sayi2 = parseInt(sayi2);
+            sayi3 = parseInt(sayi3);
+            sayi4 = parseInt(sayi4);
+            sayi5 = parseInt(sayi5);
+            sayi6 = parseInt(sayi6);
+            sayi7 = parseInt(sayi7);
+            sayi8 = parseInt(sayi8);
+            sayi9 = parseInt(sayi9);
+            sayi10 = parseInt(sayi10);
+            sayi11 = parseInt(sayi11);
+            sayi12 = parseInt(sayi12);
+            sayi13 = parseInt(sayi13);
+            sayi14 = parseInt(sayi14);
+            sayi15 = parseInt(sayi15);
+            sayi16 = parseInt(sayi16);
+            socket.emit("4x4determinant", [[sayi1,sayi2,sayi3,sayi4],[sayi5,sayi6,sayi7,sayi8],[sayi9,sayi10,sayi11,sayi12],[sayi13,sayi14,sayi15,sayi16]]);
+
+
+        })
+
+        $("#random").on("click",function(){
+            randomSayi = $("#randomText").val();
+            randomSayi = parseInt(randomSayi);
+            socket.emit("random", randomSayi);
+        })
+    });
+    
+  </script>  
+</html>
