@@ -32,363 +32,288 @@
     </ul>
 
 
-    <!-- Tab panes -->
+    <!-- Matris Calculators -->
     <div class="tab-content">
       <div class="tab-pane container active" id="home">  
         
+        <div class="container row">
+          <!-- Matris -1 -->
+          <div class="col-6 d-flex flex-column align-items-center justify-content-between mt-4" style="height: 50vh;">
+            <h2 class="fw-medium text-dark text-center">2x2 Matris</h2>
 
-          <div class="container row">
-
-            <div class="col-6 d-flex flex-column align-items-center justify-content-between mt-4" style="height: 50vh;">
-              <h2 class="fw-medium text-dark text-center">2x2 Matris</h2>
-
-              <!-- Row-1 -->
-              <div class="px-5 d-flex gap-3">
-                <!-- Matris 1 -->
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">1. Elemanı Giriniz</label>
-                </div>
-  
-                
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">2. Elemanı Giriniz</label>
-                </div>
-
-              </div> 
-              <!-- Row-1 End -->
-
-
-              <!-- Row-2 -->
-              <div class="px-5 d-flex gap-3">
-
-                <!-- Matris 3 -->
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">3. Elemanı Giriniz</label>
-                </div>
-  
-                <!-- Matris 4 -->
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">4. Elemanı Giriniz</label>
-                </div>
-
+            <!-- Row-1 -->
+            <div class="px-5 d-flex gap-3">
+              <!-- Matris 1 -->
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris 1" name="2x2matrix1" id="2x2matrix1">
+                <label for="2x2matrix1">1. Elemanı Giriniz</label>
               </div>
-              <!-- Row-2 End -->
-              <a href="#" class="btn btn-lg w-75 btn-success px-5 mt-2">Detarminantı Hesapla</a>
-              <!-- <p class="text-secondary">Sonuç: <b class="text-dark">0</b></p> -->
+
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris 2" name="2x2matrix2" id="2x2matrix2">
+                <label for="2x2matrix2">2. Elemanı Giriniz</label>
+              </div>
+
+            </div> 
+            <!-- Row-1 End -->
+
+
+            <!-- Row-2 -->
+            <div class="px-5 d-flex gap-3">
+
+              <!-- Matris 3 -->
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris 3" name="2x2matrix3" id="2x2matrix3">
+                <label for="2x2matrix3">3. Elemanı Giriniz</label>
+              </div>
+
+              <!-- Matris 4 -->
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris 4" name="2x2matrix4" id="2x2matrix4">
+                <label for="2x2matrix4">4. Elemanı Giriniz</label>
+              </div>
+
             </div>
-
-            <div class="col-6 d-flex flex-column align-items-center justify-content-between mt-4" style="height: 50vh;">
-              <h2 class="fw-medium text-dark text-center">3x3 Matris</h2>
-
-              <!-- Row-1 -->
-              <div class="px-5 d-flex gap-3">
-                
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">1. Elemanı Giriniz</label>
-                </div>
-  
-                
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">2. Elemanı Giriniz</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">3. Elemanı Giriniz</label>
-                </div>
-
-              </div> 
-              <!-- Row-1 End -->
+            <!-- Row-2 End -->
+            <button type="button" id="2x2determinantBtn" class="btn btn-lg w-75 btn-success px-5 mt-2">Detarminantı Hesapla</button>
+            <p class="text-secondary">Sonuç: <b class="det-results text-dark" id="2x2det"></b></p>
+          </div>
+          <!-- Matris -1 End -->
 
 
-              <!-- Row-2 -->
-              <div class="px-5 d-flex gap-3">
+          <!-- Matris -2 -->
+          <div class="col-6 d-flex flex-column align-items-center justify-content-between mt-4" style="height: 50vh;">
+            <h2 class="fw-medium text-dark text-center">3x3 Matris</h2>
 
-                
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">4. Elemanı Giriniz</label>
-                </div>
-  
-                
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">5. Elemanı Giriniz</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">6. Elemanı Giriniz</label>
-                </div>
-
+            <!-- Row-1 -->
+            <div class="px-5 d-flex gap-3">
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="3x3matrix1" id="3x3matrix1">
+                <label for="3x3matrix1">1. Elemanı Giriniz</label>
               </div>
-              <!-- Row-2 End -->
 
-              <!-- Row-3 -->
-              <div class="px-5 d-flex gap-3">
-
-                
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">7. Elemanı Giriniz</label>
-                </div>
-  
-                
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">8. Elemanı Giriniz</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">9. Elemanı Giriniz</label>
-                </div>
-
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="3x3matrix2" id="3x3matrix2">
+                <label for="3x3matrix2">2. Elemanı Giriniz</label>
               </div>
-              <!-- Row-3 End -->
 
-              <a href="#" class="btn btn-lg btn-success col-5 px-5 w-75 mt-2">Detarminantı Hesapla</a>
-              <!-- <p class="text-secondary">Sonuç : <b class="text-dark">0</b></p> -->
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris"
+                name="3x3matrix3" id="3x3matrix3">
+                <label for="3x3matrix3">3. Elemanı Giriniz</label>
+              </div>
+
+            </div> 
+            <!-- Row-1 End -->
+
+
+            <!-- Row-2 -->
+            <div class="px-5 d-flex gap-3">
+
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="3x3matrix4" id="3x3matrix4">
+                <label for="3x3matrix4">4. Elemanı Giriniz</label>
+              </div>
+
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="3x3matrix5" id="3x3matrix5">
+                <label for="3x3matrix5">5. Elemanı Giriniz</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris"
+                name="3x3matrix6" id="3x3matrix6">
+                <label for="3x3matrix6">6. Elemanı Giriniz</label>
+              </div>
+
             </div>
+            <!-- Row-2 End -->
 
-          </div>
+            <!-- Row-3 -->
+            <div class="px-5 d-flex gap-3">
 
-          <div class="container row text-center">
-            <div class="col-12 d-flex flex-column align-items-center justify-content-between mt-5" style="height: 60vh;">
-              <h2 class="fw-medium text-dark text-center">4x4 Matris</h2>
-
-              <!-- Row-1 -->
-              <div class="px-5 d-flex gap-3">
-                
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">1. Elemanı Giriniz</label>
-                </div>
-                 
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">2. Elemanı Giriniz</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">3. Elemanı Giriniz</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">4. Elemanı Giriniz</label>
-                </div>
-
-              </div> 
-              <!-- Row-1 End -->
-
-
-              <!-- Row-2 -->
-              <div class="px-5 d-flex gap-3">
-
-                
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">5. Elemanı Giriniz</label>
-                </div>
-  
-                
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">6. Elemanı Giriniz</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">7. Elemanı Giriniz</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">8. Elemanı Giriniz</label>
-                </div>
-
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="3x3matrix7" id="3x3matrix7">
+                <label for="3x3matrix7">7. Elemanı Giriniz</label>
               </div>
-              <!-- Row-2 End -->
 
-              <!-- Row-3 -->
-              <div class="px-5 d-flex gap-3">
-
-                
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">9. Elemanı Giriniz</label>
-                </div>
-  
-                
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">10. Elemanı Giriniz</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">11. Elemanı Giriniz</label>
-                </div>
-                
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">12. Elemanı Giriniz</label>
-                </div>
-
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="3x3matrix8" id="3x3matrix8">
+                <label for="3x3matrix8">8. Elemanı Giriniz</label>
               </div>
-              <!-- Row-3 End -->
 
-              <!-- Row-4 -->
-              <div class="px-5 d-flex gap-3">
-
-                
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">13. Elemanı Giriniz</label>
-                </div>
-  
-                
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">14. Elemanı Giriniz</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">15. Elemanı Giriniz</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">16. Elemanı Giriniz</label>
-                </div>
-
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="3x3matrix9" id="3x3matrix9">
+                <label for="3x3matrix9">9. Elemanı Giriniz</label>
               </div>
-              <!-- Row-4 End -->
 
-              <a href="#" class="btn btn-lg btn-success px-5 w-50 mt-2">Detarminantı Hesapla</a>
-              <!-- <p class="text-secondary">Sonuç : <b class="text-dark">0</b></p> -->
             </div>
+            <!-- Row-3 End -->
+
+            <button type="button" id="3x3determinantBtn" class="btn btn-lg btn-success col-5 px-5 w-75 mt-2">Detarminantı Hesapla</button>
+            <p class="text-secondary">Sonuç : <b class="det-results text-dark" id="3x3det"></b></p>
           </div>
-
-
-
-            <!-- Buradan ID'ler vs. alınacak -->
-          <!-- <table class="table table-dark table-striped" >
-            <tbody>
-              <tr>
-                <td><input value="0" type="text" name="2x2matrix" id="2x2matrix1" placeholder="satır1 - sütun1"></td>
-                <td><input value="0" type="text" name="2x2matrix" id="2x2matrix2" placeholder="satır1 - sütun2"></td>
-              </tr>
-              <tr>
-                <td><input value="0" type="text" name="2x2matrix" id="2x2matrix3" placeholder="satır2 - sütun1"></td>
-                <td><input value="0" type="text" name="2x2matrix" id="2x2matrix4" placeholder="satır2 - sütun2"></td>
-              </tr>
-              <tr>
-                  <td><input class="hesaplaButon" type="button" id="2x2determinantBtn" value="Determinantı Hesapla "></td>
-                  <td><textarea class="2x2det" disabled></textarea></td>
-              </tr>
-            </tbody>
-          </table>
-        </div> -->
-
-
-        <!-- <div class="container">
-          <h2>3x3 Matris</h2>
-          <table class="table table-dark table-striped">
-            <tbody>
-              <tr>
-                    <td><input value="0" type="text" name="3x3matrix" id="3x3matrix1" placeholder="satır1 - sütun1"></td>
-                    <td><input value="0" type="text" name="3x3matrix" id="3x3matrix2" placeholder="satır1 - sütun2"></td>
-                    <td><input value="0" type="text" name="3x3matrix" id="3x3matrix3" placeholder="satır1 - sütun3"></td>
-              </tr>
-              <tr>
-                    <td><input value="0" type="text" name="3x3matrix" id="3x3matrix4" placeholder="satır2 - sütun1"></td>
-                    <td><input value="0" type="text" name="3x3matrix" id="3x3matrix5" placeholder="satır2 - sütun2"></td>
-                    <td><input value="0" type="text" name="3x3matrix" id="3x3matrix6" placeholder="satır2 - sütun3"></td>
-              </tr>
-              <tr>
-                    <td><input value="0" type="text" name="3x3matrix" id="3x3matrix7" placeholder="satır3 - sütun1"></td>
-                    <td><input value="0" type="text" name="3x3matrix" id="3x3matrix8" placeholder="satır3 - sütun2"></td>
-                    <td><input value="0" type="text" name="3x3matrix" id="3x3matrix9" placeholder="satır3 - sütun3"></td>
-              </tr>
-              <tr>
-                    <td><input class="hesaplaButon" type="button" id="3x3determinantBtn" value="Determinantı Hesapla "></td>
-                    <td colspan="2"><textarea class="3x3det" disabled></textarea></td>
-              </tr>
-            </tbody>
-          </table>
-        </div> -->
-        <!-- <div class="container"> -->
-            <!-- <h2>4x4 Matris</h2> -->
-            <!-- <table class="table table-dark table-striped">
-              <tbody>
-                <tr>
-                      <td><input value="0" type="text" name="4x4matrix" id="4x4matrix1" placeholder="satır1 - sütun1"></td>
-                      <td><input value="0" type="text" name="4x4matrix" id="4x4matrix2" placeholder="satır1 - sütun2"></td>
-                      <td><input value="0" type="text" name="4x4matrix" id="4x4matrix3" placeholder="satır1 - sütun3"></td>
-                      <td><input value="0" type="text" name="4x4matrix" id="4x4matrix4" placeholder="satır1 - sütun4"></td>
-                </tr>
-                <tr>
-                      <td><input value="0" type="text" name="4x4matrix" id="4x4matrix5" placeholder="satır2 - sütun1"></td>
-                      <td><input value="0" type="text" name="4x4matrix" id="4x4matrix6" placeholder="satır2 - sütun2"></td>
-                      <td><input value="0" type="text" name="4x4matrix" id="4x4matrix7" placeholder="satır2 - sütun3"></td>
-                      <td><input value="0" type="text" name="4x4matrix" id="4x4matrix8" placeholder="satır2 - sütun4"></td>
-                </tr>
-                <tr>
-                      <td><input value="0" type="text" name="4x4matrix" id="4x4matrix9" placeholder="satır3 - sütun1"></td>
-                      <td><input value="0" type="text" name="4x4matrix" id="4x4matrix10" placeholder="satır3 - sütun2"></td>
-                      <td><input value="0" type="text" name="4x4matrix" id="4x4matrix11" placeholder="satır3 - sütun3"></td>
-                      <td><input value="0" type="text" name="4x4matrix" id="4x4matrix12" placeholder="satır3 - sütun4"></td>
-                </tr>
-                <tr>
-                      <td><input value="0" type="text" name="4x4matrix" id="4x4matrix13" placeholder="satır4 - sütun1"></td>
-                      <td><input value="0" type="text" name="4x4matrix" id="4x4matrix14" placeholder="satır4 - sütun2"></td>
-                      <td><input value="0" type="text" name="4x4matrix" id="4x4matrix15" placeholder="satır4 - sütun3"></td>
-                      <td><input value="0" type="text" name="4x4matrix" id="4x4matrix16" placeholder="satır4 - sütun4"></td>
-                </tr>
-                <tr>
-                      <td><input class="hesaplaButon" type="button" id="4x4determinantBtn" value="Determinantı Hesapla "></td>
-                      <td colspan="3"><textarea class="4x4det" disabled></textarea></td>
-                </tr>
-              </tbody>
-            </table> -->
-          </div></div>
-
-
-          
-      <div class="tab-pane container fade w-100 m-auto" id="menu1">
-        <main class="m-auto col-6">
-
-          <h2 class="h3 mb-3 fw-normal mt-5">Rastgele Sayı Oluşturucu</h2>
-      
-          <div class="form-floating">
-            <input type="number" class="form-control" id="randomText" placeholder="1-x arasında bir sayı girin">
-            <label for="randomText">Oluşturulacak Maksimum Sayıyı Girin</label>
-            <p class="fw-light text-secondary">Girdiğiniz sayı 1'den büyük olmalıdır.</p>
-          </div>
-          
-          <button type="button" class="btn btn-success w-100 my-2" id="random">Sayıyı Oluştur</button>
-          
-        </main>
-        
-        <div class="container mt-4 px-5 col-3">
-          <p class="text-secondary fw-medium mb-0">Sonuç Burada Gözükecek</p>
-          <div class="border border-secondary border-1 rounded fw-medium text-dark d-flex align-items-center justify-content-center" id="randomSonuc" style="min-height: 5vh;">
-          
-          </div>
-
+          <!-- Matris -2 End -->
         </div>
 
+        <div class="container row text-center">
+          <!-- Matris -3 -->
+          <div class="col-12 d-flex flex-column align-items-center justify-content-between mt-5" style="height: 60vh;">
+            <h2 class="fw-medium text-dark text-center">4x4 Matris</h2>
+
+            <!-- Row-1 -->
+            <div class="px-5 d-flex gap-3">
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix1" id="4x4matrix1">
+                <label for="4x4matrix1">1. Elemanı Giriniz</label>
+              </div>
+                
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix2" id="4x4matrix2">
+                <label for="4x4matrix2">2. Elemanı Giriniz</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix3" id="4x4matrix3">
+                <label for="4x4matrix3">3. Elemanı Giriniz</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix4" id="4x4matrix4">
+                <label for="4x4matrix4">4. Elemanı Giriniz</label>
+              </div>
+
+            </div> 
+            <!-- Row-1 End -->
+
+
+            <!-- Row-2 -->
+            <div class="px-5 d-flex gap-3">
+
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix5" id="4x4matrix5">
+                <label for="4x4matrix5">5. Elemanı Giriniz</label>
+              </div>
+
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix6" id="4x4matrix6">
+                <label for="4x4matrix6">6. Elemanı Giriniz</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix7" id="4x4matrix7">
+                <label for="4x4matrix7">7. Elemanı Giriniz</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix8" id="4x4matrix8">
+                <label for="4x4matrix8">8. Elemanı Giriniz</label>
+              </div>
+
+            </div>
+            <!-- Row-2 End -->
+
+            <!-- Row-3 -->
+            <div class="px-5 d-flex gap-3">
+
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix9" id="4x4matrix9">
+                <label for="4x4matrix9">9. Elemanı Giriniz</label>
+              </div>
+
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix10" id="4x4matrix10">
+                <label for="4x4matrix10">10. Elemanı Giriniz</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix11" id="4x4matrix11">
+                <label for="4x4matrix11">11. Elemanı Giriniz</label>
+              </div>
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix12" id="4x4matrix12">
+                <label for="4x4matrix12">12. Elemanı Giriniz</label>
+              </div>
+
+            </div>
+            <!-- Row-3 End -->
+
+            <!-- Row-4 -->
+            <div class="px-5 d-flex gap-3">
+
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix13" id="4x4matrix13">
+                <label for="4x4matrix13">13. Elemanı Giriniz</label>
+              </div>
+
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix14" id="4x4matrix14">
+                <label for="4x4matrix14">14. Elemanı Giriniz</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix15" id="4x4matrix15">
+                <label for="4x4matrix15">15. Elemanı Giriniz</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix16" id="4x4matrix16">
+                <label for="4x4matrix16">16. Elemanı Giriniz</label>
+              </div>
+
+            </div>
+            <!-- Row-4 End -->
+
+            <button type="button" id="4x4determinantBtn" class="btn btn-lg btn-success px-5 w-50 mt-2">Detarminantı Hesapla</button>
+            <p class="text-secondary">Sonuç : <b class="det-results text-dark" id="4x4det"></b></p>
+          </div>
+          <!-- Matris -3 End -->
+        </div>
+
+      </div>
     </div>
+    <!-- Matris Calculators End -->
+
+    <!-- Random Number -->
+    <div class="tab-pane container fade w-100 m-auto" id="menu1">
+      <main class="m-auto col-6">
+
+        <h2 class="h3 mb-3 fw-normal mt-5">Rastgele Sayı Oluşturucu</h2>
+    
+        <div class="form-floating">
+          <input type="number" class="form-control" id="randomText" placeholder="1-x arasında bir sayı girin">
+          <label for="randomText">Oluşturulacak Maksimum Sayıyı Girin</label>
+          <p class="fw-light text-secondary">Girdiğiniz sayı 1'den büyük olmalıdır.</p>
+        </div>
+        
+        <button type="button" class="btn btn-success w-100 my-2" id="random">Sayıyı Oluştur</button>
+        
+      </main>
+      
+      <!-- Random Number Result -->
+      <div class="container mt-4 px-5 col-3">
+        <p class="text-secondary fw-medium mb-0">Sonuç Burada Gözükecek</p>
+        <div class="border border-secondary border-1 rounded fw-medium text-dark d-flex align-items-center justify-content-center" id="randomSonuc" style="min-height: 5vh;"></div>
+      </div>
+      <!-- Random Number Result End -->
+
+    </div>
+    <!-- Random Number End -->
 
    
 
@@ -408,15 +333,15 @@
         // "+" butonuna basıldığında para değişkenini 1 arttıran kodu dinler
         socket.on("2x2determinant",data=> { 
                 console.log(data); 
-                $(".2x2det").val(data);
+                $("#2x2det").html(data);
         });
         socket.on("3x3determinant",data=> { 
                 console.log(data); 
-                $(".3x3det").val(data);
+                $("#3x3det").html(data);
         });
         socket.on("4x4determinant",data=> { 
                 console.log(data); 
-                $(".4x4det").val(data);
+                $("#4x4det").html(data);
         });
         socket.on("random",data=> { 
                 console.log(data); 
@@ -522,6 +447,10 @@
       // Change Result Text
       $('#randomSonuc').removeClass('text-dark');
       $('#randomSonuc').addClass('text-light');
+
+      // Change Result Text
+      $('.det-results').removeClass('text-dark');
+      $('.det-results').addClass('text-light');
       
     })
     
@@ -539,6 +468,9 @@
       
       // Change Result Text
       $('#randomSonuc').removeClass('text-light');
+
+      // Change Result Text
+      $('.det-results').removeClass('text-light');
     })
     </script>
 </html>
