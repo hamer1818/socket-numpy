@@ -519,20 +519,26 @@
       // Change Dropdown Menu
       $('.dropdown-menu').addClass('dropdown-menu-dark');
 
+      // Change Result Text
+      $('#randomSonuc').removeClass('text-dark');
+      $('#randomSonuc').addClass('text-light');
+      
     })
     
     $('#lightTheme').on('click', () => {
       // Change Body Color & Headings
       $('body').removeClass('bg-dark');
       $('h2').removeClass('text-white');
-
+      
       // Change Active Theme
       $('#activeTheme').addClass('fa-sun');
       $('#activeTheme').removeClass('fa-moon');
-
+      
       // Change Dropdown Menu
       $('.dropdown-menu').removeClass('dropdown-menu-dark');
-
+      
+      // Change Result Text
+      $('#randomSonuc').removeClass('text-light');
     })
-  </script>
+    </script>
 </html>
