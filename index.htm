@@ -1,218 +1,503 @@
 <!DOCTYPE html>
 <html lang="tr">
     <head>
-        <title>2x2 Matris</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+      <title>2x2 Matris</title>
 
-        <style>
-        .container{
-            margin-top: 50px;
+      <!-- Bootstrap CDN CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
-        }
-        textarea{
-            width: 100%;
-            height: 100%;
-            resize: none;
-            overflow: hidden;
-            border: none;
-            background-color: #343a40;
-            color: white;
-            font-size: 30px;
-            font-weight: bold;
-        }
-        .accordion-body{
-            background-color: #343a40;
-        }
-        h2{
-            color: white;
-        }
-        h1{
-            color: rgb(255, 0, 0);
-            text-align: center;
-        }
-        .hesaplaButon{
-            width: 100%;
-            height: 100%;
-            background-color: #343a40;
-            color: white;
-            font-size: 20px;
-            font-weight: bold;
-            border: none;
-        }
-        .hesaplaButon:hover{
-            background-color: #feffff;
-            color: rgb(70, 2, 2);
-            font-size: 20px;
-            font-weight: bold;
-            border: none;
-        }
-        .hesaplaButon:active{
-            background-color: #28d3d3;
-            color: rgb(70, 2, 2);
-            font-size: 20px;
-            font-weight: bold;
-            border: none;
-        }
-        .nav-tabs{
-            background-color: #343a40;
-        }
-        .nav-link{
-            color: white;
-        }
-        .nav-link:hover{
-            color: #28d3d3;
-        }
-        .nav-link:active{
-            color: #28d3d3;
-        }
-        .nav-link:focus{
-            color: #28d3d3;
-        }
-        .tab-content , .tab-pane{
-            background-color: #343a40;
-        }
-        .randomButon{
-            width: 100%;
-            height: 100%;
-            background-color: #ffffff;
-            color: rgb(54, 51, 51);
-            font-size: 20px;
-            font-weight: bold;
-            border: none;
-        }
-        .randomButon:hover{
-            background-color: #808080;
-            color: rgb(70, 2, 2);
-            font-size: 20px;
-            font-weight: bold;
-            border: none;
-        }
-        .randomText{
-            width: 100%;
-            height: 100%;
-            background-color: #ffffff;
-            color: rgb(54, 51, 51);
-            font-size: 110px;
-            font-weight: bold;
-            border: none;
-            text-align: center;
+      <!-- Font Awesome -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+        
+    </head>
+    <body>
 
-        }
-        body{
-            background-color: #343a40;
-        }
+    <!-- Nav tabs -->
+    <ul class="container nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" data-bs-toggle="tab" href="#home">Matrix Determinant</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tab" href="#menu1">Random Number Generator</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i id="activeTheme" class="fa-solid fa-sun"></i> Seçili Tema</a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item" id="lightTheme"><i class="fa-solid fa-sun"></i> Açık Tema</li>
+            <li class="dropdown-item" id="darkTheme"><i class="fa-solid fa-moon"></i> Koyu Tema</li>
+          </ul>
+        </li>
+    </ul>
 
 
-        </style>
-      </head>
-      <body>
+    <!-- Matris Calculators -->
+    <div class="tab-content">
+      <div class="tab-pane container active" id="home">  
+        
+        <div class="container row">
+          <!-- Matris -1 -->
+          <form class="col-6 d-flex flex-column align-items-center justify-content-between mt-4 needs-validation" style="height: 50vh;" novalidate>
+            <h2 class="fw-medium text-dark text-center">2x2 Matris</h2>
 
-<!-- Nav tabs -->
-<ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link active" data-bs-toggle="tab" href="#home">Matrix Determinant</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-bs-toggle="tab" href="#menu1">Random Number Generator</a>
-    </li>
-  </ul>
-  
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <div class="tab-pane container active" id="home">                    
-        <div class="container">
-        <h2>2x2 Matris</h2>
-        <table class="table table-dark table-striped" >
-          <tbody>
-            <tr>
-              <td><input value="0" type="text" name="2x2matrix" id="2x2matrix1" placeholder="satır1 - sütun1"></td>
-              <td><input value="0" type="text" name="2x2matrix" id="2x2matrix2" placeholder="satır1 - sütun2"></td>
-            </tr>
-            <tr>
-              <td><input value="0" type="text" name="2x2matrix" id="2x2matrix3" placeholder="satır2 - sütun1"></td>
-              <td><input value="0" type="text" name="2x2matrix" id="2x2matrix4" placeholder="satır2 - sütun2"></td>
-            </tr>
-            <tr>
-                <td><input class="hesaplaButon" type="button" id="2x2determinantBtn" value="Determinantı Hesapla "></td>
-                <td><textarea class="2x2det" disabled></textarea></td>
-            </tr>
-          </tbody>
-        </table>
+            <!-- Row-1 -->
+            <div class="px-5 d-flex gap-3">
+              <!-- Matris 1 -->
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris 1" name="2x2matrix1" id="2x2matrix1" required>
+                <label for="2x2matrix1">1. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris 2" name="2x2matrix2" id="2x2matrix2" required>
+                <label for="2x2matrix2">2. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+
+            </div> 
+            <!-- Row-1 End -->
+
+
+            <!-- Row-2 -->
+            <div class="px-5 d-flex gap-3">
+
+              <!-- Matris 3 -->
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris 3" name="2x2matrix3" id="2x2matrix3" required>
+                <label for="2x2matrix3">3. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+
+              <!-- Matris 4 -->
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris 4" name="2x2matrix4" id="2x2matrix4" required>
+                <label for="2x2matrix4">4. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+
+            </div>
+            <!-- Row-2 End -->
+            <button id="2x2determinantBtn" class="btn btn-lg w-75 btn-success px-5 mt-2">Determinantı Hesapla</button>
+            <p class="text-secondary">Sonuç: <b class="det-results text-dark" id="2x2det"></b></p>
+          </form>
+          <!-- Matris -1 End -->
+
+
+          <!-- Matris -2 -->
+          <form class="needs-validation col-6 d-flex flex-column align-items-center justify-content-between mt-4" style="height: 50vh;" novalidate>
+            <h2 class="fw-medium text-dark text-center">3x3 Matris</h2>
+
+            <!-- Row-1 -->
+            <div class="px-5 d-flex gap-3">
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="3x3matrix1" id="3x3matrix1" required>
+                <label for="3x3matrix1">1. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="3x3matrix2" id="3x3matrix2" required>
+                <label for="3x3matrix2">2. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris"
+                name="3x3matrix3" id="3x3matrix3" required>
+                <label for="3x3matrix3">3. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+
+            </div> 
+            <!-- Row-1 End -->
+
+
+            <!-- Row-2 -->
+            <div class="px-5 d-flex gap-3">
+
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="3x3matrix4" id="3x3matrix4" required>
+                <label for="3x3matrix4">4. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="3x3matrix5" id="3x3matrix5" required>
+                <label for="3x3matrix5">5. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris"
+                name="3x3matrix6" id="3x3matrix6" required>
+                <label for="3x3matrix6">6. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+
+            </div>
+            <!-- Row-2 End -->
+
+            <!-- Row-3 -->
+            <div class="px-5 d-flex gap-3">
+
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="3x3matrix7" id="3x3matrix7" required>
+                <label for="3x3matrix7">7. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="3x3matrix8" id="3x3matrix8" required>
+                <label for="3x3matrix8">8. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="3x3matrix9" id="3x3matrix9" required>
+                <label for="3x3matrix9">9. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+
+            </div>
+            <!-- Row-3 End -->
+
+            <button id="3x3determinantBtn" class="btn btn-lg btn-success col-5 px-5 w-75 mt-2">Determinantı Hesapla</button>
+            <p class="text-secondary">Sonuç : <b class="det-results text-dark" id="3x3det"></b></p>
+          </form>
+          <!-- Matris -2 End -->
+        </div>
+
+        <div class="container row text-center">
+          <!-- Matris -3 -->
+          <form class="needs-validation col-12 d-flex flex-column align-items-center justify-content-between mt-5" style="height: 60vh;">
+            <h2 class="fw-medium text-dark text-center">4x4 Matris</h2>
+
+            <!-- Row-1 -->
+            <div class="px-5 d-flex gap-3">
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix1" id="4x4matrix1" required>
+                <label for="4x4matrix1">1. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+                
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix2" id="4x4matrix2" required>
+                <label for="4x4matrix2">2. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix3" id="4x4matrix3" required>
+                <label for="4x4matrix3">3. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix4" id="4x4matrix4" required>
+                <label for="4x4matrix4">4. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+
+            </div> 
+            <!-- Row-1 End -->
+
+
+            <!-- Row-2 -->
+            <div class="px-5 d-flex gap-3">
+
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix5" id="4x4matrix5" required>
+                <label for="4x4matrix5">5. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix6" id="4x4matrix6" required>
+                <label for="4x4matrix6">6. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix7" id="4x4matrix7" required>
+                <label for="4x4matrix7">7. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix8" id="4x4matrix8" required>
+                <label for="4x4matrix8">8. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+
+            </div>
+            <!-- Row-2 End -->
+
+            <!-- Row-3 -->
+            <div class="px-5 d-flex gap-3">
+
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix9" id="4x4matrix9" required>
+                <label for="4x4matrix9">9. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix10" id="4x4matrix10" required>
+                <label for="4x4matrix10">10. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix11" id="4x4matrix11" required>
+                <label for="4x4matrix11">11. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix12" id="4x4matrix12" required>
+                <label for="4x4matrix12">12. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+
+            </div>
+            <!-- Row-3 End -->
+
+            <!-- Row-4 -->
+            <div class="px-5 d-flex gap-3">
+
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix13" id="4x4matrix13" required>
+                <label for="4x4matrix13">13. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix14" id="4x4matrix14" required>
+                <label for="4x4matrix14">14. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix15" id="4x4matrix15" required>
+                <label for="4x4matrix15">15. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix16" id="4x4matrix16" required>
+                <label for="4x4matrix16">16. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
+              </div>
+
+            </div>
+            <!-- Row-4 End -->
+
+            <button id="4x4determinantBtn" class="btn btn-lg btn-success px-5 w-50 mt-2">Determinantı Hesapla</button>
+            <p class="text-secondary">Sonuç : <b class="det-results text-dark" id="4x4det"></b></p>
+          </form>
+          <!-- Matris -3 End -->
+        </div>
+
       </div>
-      <div class="container">
-        <h2>3x3 Matris</h2>
-        <table class="table table-dark table-striped">
-          <tbody>
-            <tr>
-                  <td><input value="0" type="text" name="3x3matrix" id="3x3matrix1" placeholder="satır1 - sütun1"></td>
-                  <td><input value="0" type="text" name="3x3matrix" id="3x3matrix2" placeholder="satır1 - sütun2"></td>
-                  <td><input value="0" type="text" name="3x3matrix" id="3x3matrix3" placeholder="satır1 - sütun3"></td>
-            </tr>
-            <tr>
-                  <td><input value="0" type="text" name="3x3matrix" id="3x3matrix4" placeholder="satır2 - sütun1"></td>
-                  <td><input value="0" type="text" name="3x3matrix" id="3x3matrix5" placeholder="satır2 - sütun2"></td>
-                  <td><input value="0" type="text" name="3x3matrix" id="3x3matrix6" placeholder="satır2 - sütun3"></td>
-            </tr>
-            <tr>
-                  <td><input value="0" type="text" name="3x3matrix" id="3x3matrix7" placeholder="satır3 - sütun1"></td>
-                  <td><input value="0" type="text" name="3x3matrix" id="3x3matrix8" placeholder="satır3 - sütun2"></td>
-                  <td><input value="0" type="text" name="3x3matrix" id="3x3matrix9" placeholder="satır3 - sütun3"></td>
-            </tr>
-            <tr>
-                  <td><input class="hesaplaButon" type="button" id="3x3determinantBtn" value="Determinantı Hesapla "></td>
-                  <td colspan="2"><textarea class="3x3det" disabled></textarea></td>
-            </tr>
-          </tbody>
-        </table>
+    </div>
+    <!-- Matris Calculators End -->
+
+    <!-- Random Number -->
+    <div class="tab-pane container fade w-100 m-auto" id="menu1">
+      <main class="m-auto col-6">
+
+        <h2 class="h3 mb-3 fw-normal mt-5">Rastgele Sayı Oluşturucu</h2>
+    
+        <div class="form-floating">
+          <input type="number" class="form-control" id="randomText" placeholder="1-x arasında bir sayı girin" required>
+          <label for="randomText">Oluşturulacak Maksimum Sayıyı Girin</label>
+          <p class="fw-light text-secondary">Girdiğiniz sayı 1'den büyük olmalıdır.</p>
+        </div>
+        
+        <button type="button" class="btn btn-success w-100 my-2" id="random">Sayıyı Oluştur</button>
+        
+      </main>
+      
+      <!-- Random Number Result -->
+      <div class="container mt-4 px-5 col-3">
+        <p class="text-secondary fw-medium mb-0">Sonuç Burada Gözükecek</p>
+        <div class="border border-secondary border-1 rounded fw-medium text-dark d-flex align-items-center justify-content-center" id="randomSonuc" style="min-height: 5vh;"></div>
       </div>
-      <div class="container">
-          <h2>4x4 Matris</h2>
-          <table class="table table-dark table-striped">
-            <tbody>
-              <tr>
-                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix1" placeholder="satır1 - sütun1"></td>
-                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix2" placeholder="satır1 - sütun2"></td>
-                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix3" placeholder="satır1 - sütun3"></td>
-                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix4" placeholder="satır1 - sütun4"></td>
-              </tr>
-              <tr>
-                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix5" placeholder="satır2 - sütun1"></td>
-                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix6" placeholder="satır2 - sütun2"></td>
-                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix7" placeholder="satır2 - sütun3"></td>
-                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix8" placeholder="satır2 - sütun4"></td>
-              </tr>
-              <tr>
-                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix9" placeholder="satır3 - sütun1"></td>
-                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix10" placeholder="satır3 - sütun2"></td>
-                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix11" placeholder="satır3 - sütun3"></td>
-                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix12" placeholder="satır3 - sütun4"></td>
-              </tr>
-              <tr>
-                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix13" placeholder="satır4 - sütun1"></td>
-                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix14" placeholder="satır4 - sütun2"></td>
-                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix15" placeholder="satır4 - sütun3"></td>
-                    <td><input value="0" type="text" name="4x4matrix" id="4x4matrix16" placeholder="satır4 - sütun4"></td>
-              </tr>
-              <tr>
-                    <td><input class="hesaplaButon" type="button" id="4x4determinantBtn" value="Determinantı Hesapla "></td>
-                    <td colspan="3"><textarea class="4x4det" disabled></textarea></td>
-              </tr>
-            </tbody>
-          </table>
-        </div></div>
-    <div class="tab-pane container fade" id="menu1">
-        <input class="randomText" type="text" placeholder="1-x arası sayı girin" id="randomText">
-        <input class="randomButon" type="button" value="random" id="random">
-        <textarea name="randomSonuc" id="randomSonuc" cols="1" rows="1" style="font-size: 150px; text-align: center;"></textarea></div>
+      <!-- Random Number Result End -->
 
-  </div>
+    </div>
+    <!-- Random Number End -->
+
+   
 
 
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-      </body>
-<script src="https://cdn.socket.io/3.1.3/socket.io.min.js" integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CDN JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </body>
+  <script src="https://cdn.socket.io/3.1.3/socket.io.min.js" integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh" crossorigin="anonymous"></script>
 <script >
     $( document ).ready(function() {
         console.log( "ready!" );
@@ -222,25 +507,26 @@
         // "+" butonuna basıldığında para değişkenini 1 arttıran kodu dinler
         socket.on("2x2determinant",data=> { 
                 console.log(data); 
-                $(".2x2det").val(data);
+                $("#2x2det").html(data);
         });
         socket.on("3x3determinant",data=> { 
                 console.log(data); 
-                $(".3x3det").val(data);
+                $("#3x3det").html(data);
         });
         socket.on("4x4determinant",data=> { 
                 console.log(data); 
-                $(".4x4det").val(data);
+                $("#4x4det").html(data);
         });
         socket.on("random",data=> { 
                 console.log(data); 
-                $("#randomSonuc").val(data);
+                $("#randomSonuc").html(data);
         })
 
 
         
         // "+" butonuna basıldığında para değişkenini pythona gönderen kod
-        $("#2x2determinantBtn").on("click",function(){
+        $("#2x2determinantBtn").on("click",function(e){
+            e.preventDefault()
             let sayi1 = $("#2x2matrix1").val();
             let sayi2 = $("#2x2matrix2").val();
             let sayi3 = $("#2x2matrix3").val();
@@ -251,7 +537,8 @@
             sayi4 = parseInt(sayi4);
             socket.emit("2x2determinant", [[sayi1,sayi2],[sayi3,sayi4]]);  
         })
-        $("#3x3determinantBtn").on("click",function(){
+        $("#3x3determinantBtn").on("click",function(e){
+            e.preventDefault()
             let sayi1 = $("#3x3matrix1").val();
             let sayi2 = $("#3x3matrix2").val();
             let sayi3 = $("#3x3matrix3").val();
@@ -272,7 +559,8 @@
             sayi9 = parseInt(sayi9);
             socket.emit("3x3determinant", [[sayi1,sayi2,sayi3],[sayi4,sayi5,sayi6],[sayi7,sayi8,sayi9]]);  
         })
-        $("#4x4determinantBtn").on("click",function(){
+        $("#4x4determinantBtn").on("click",function(e){
+            e.preventDefault()
             let sayi1 = $("#4x4matrix1").val();
             let sayi2 = $("#4x4matrix2").val();
             let sayi3 = $("#4x4matrix3").val();
@@ -318,4 +606,73 @@
     });
     
   </script>  
+
+  <!-- Dark & Light Theme -->
+  <script>
+    $('#darkTheme').on('click', () => {
+      // Change Body Color & Headings
+      $('body').addClass('bg-dark');
+      $('h2').addClass('text-white');
+
+      // Change Active Theme
+      $('#activeTheme').addClass('fa-moon');
+      $('#activeTheme').removeClass('fa-sun');
+
+      // Change Dropdown Menu
+      $('.dropdown-menu').addClass('dropdown-menu-dark');
+
+      // Change Result Text
+      $('#randomSonuc').removeClass('text-dark');
+      $('#randomSonuc').addClass('text-light');
+
+      // Change Result Text
+      $('.det-results').removeClass('text-dark');
+      $('.det-results').addClass('text-light');
+      
+    })
+    
+    $('#lightTheme').on('click', () => {
+      // Change Body Color & Headings
+      $('body').removeClass('bg-dark');
+      $('h2').removeClass('text-white');
+      
+      // Change Active Theme
+      $('#activeTheme').addClass('fa-sun');
+      $('#activeTheme').removeClass('fa-moon');
+      
+      // Change Dropdown Menu
+      $('.dropdown-menu').removeClass('dropdown-menu-dark');
+      
+      // Change Result Text
+      $('#randomSonuc').removeClass('text-light');
+
+      // Change Result Text
+      $('.det-results').removeClass('text-light');
+    })
+    </script>
+
+    <!-- Bootstrap Form Validation -->
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (() => {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+          form.addEventListener('click', event => {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+          }, false)
+        })
+      
+      })()
+    </script>
+
 </html>
