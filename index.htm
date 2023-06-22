@@ -10,8 +10,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
       <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
         
-    </head>git add .
-    i
+    </head>
     <body>
 
     <!-- Nav tabs -->
@@ -24,16 +23,15 @@
         </li>
     </ul>
   
+    <!-- Theme Change Button -->
+    <div class="fixed-bottom bottom-0 m-3 mb-5" style="max-height: 80px; max-width: 80px; min-width: 80px; min-height: 80px;">
+      <i id="themeChanger" class="fs-1 fa-solid fa-sun p-3 bg-primary-subtle rounded-5" ></i>
+    </div>
+
     <!-- Tab panes -->
     <div class="tab-content">
       <div class="tab-pane container active" id="home">  
         
-        <!-- Theme Change Button -->
-        <div class="fixed-bottom bottom-0 m-3 mb-5">
-          <i id="themeChanger" class="fs-1 fa-solid fa-sun p-3 bg-primary-subtle rounded-circle"></i>
-          <a  href="#" class="">
-          </a>
-        </div>
 
           <div class="container row">
 
@@ -363,10 +361,28 @@
 
 
           
-      <div class="tab-pane container fade" id="menu1">
-          <input class="randomText" type="text" placeholder="1-x arası sayı girin" id="randomText">
-          <input class="randomButon" type="button" value="random" id="random">
-          <textarea name="randomSonuc" id="randomSonuc" cols="1" rows="1" style="font-size: 150px; text-align: center;"></textarea></div>
+      <div class="tab-pane container fade w-100 m-auto" id="menu1">
+        <main class="m-auto col-6">
+
+          <h2 class="h3 mb-3 fw-normal mt-5">Rastgele Sayı Oluşturucu</h2>
+      
+          <div class="form-floating">
+            <input type="number" class="form-control" id="randomText" placeholder="1-x arasında bir sayı girin">
+            <label for="randomText">Oluşturulacak Maksimum Sayıyı Girin</label>
+            <p class="fw-light text-secondary">Girdiğiniz sayı 1'den büyük olmalıdır.</p>
+          </div>
+          
+          <button type="button" class="btn btn-success w-100 my-2" id="random">Sayıyı Oluştur</button>
+          
+        </main>
+        
+        <div class="container mt-4 px-5 col-3">
+          <p class="text-secondary fw-medium mb-0">Sonuç Burada Gözükecek</p>
+          <div class="border border-dark border-1 rounded fw-medium text-dark d-flex align-items-center justify-content-center" id="randomSonuc" style="min-height: 5vh;">
+          
+          </div>
+
+        </div>
 
     </div>
 
@@ -400,7 +416,7 @@
         });
         socket.on("random",data=> { 
                 console.log(data); 
-                $("#randomSonuc").val(data);
+                $("#randomSonuc").html(data);
         })
 
 
