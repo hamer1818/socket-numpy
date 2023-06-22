@@ -38,21 +38,33 @@
         
         <div class="container row">
           <!-- Matris -1 -->
-          <div class="col-6 d-flex flex-column align-items-center justify-content-between mt-4" style="height: 50vh;">
+          <form class="col-6 d-flex flex-column align-items-center justify-content-between mt-4 needs-validation" style="height: 50vh;" novalidate>
             <h2 class="fw-medium text-dark text-center">2x2 Matris</h2>
 
             <!-- Row-1 -->
             <div class="px-5 d-flex gap-3">
               <!-- Matris 1 -->
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris 1" name="2x2matrix1" id="2x2matrix1">
+                <input type="number" class="form-control" placeholder="matris 1" name="2x2matrix1" id="2x2matrix1" required>
                 <label for="2x2matrix1">1. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
 
               
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris 2" name="2x2matrix2" id="2x2matrix2">
+                <input type="number" class="form-control" placeholder="matris 2" name="2x2matrix2" id="2x2matrix2" required>
                 <label for="2x2matrix2">2. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
 
             </div> 
@@ -64,46 +76,76 @@
 
               <!-- Matris 3 -->
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris 3" name="2x2matrix3" id="2x2matrix3">
+                <input type="number" class="form-control" placeholder="matris 3" name="2x2matrix3" id="2x2matrix3" required>
                 <label for="2x2matrix3">3. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
 
               <!-- Matris 4 -->
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris 4" name="2x2matrix4" id="2x2matrix4">
+                <input type="number" class="form-control" placeholder="matris 4" name="2x2matrix4" id="2x2matrix4" required>
                 <label for="2x2matrix4">4. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
 
             </div>
             <!-- Row-2 End -->
-            <button type="button" id="2x2determinantBtn" class="btn btn-lg w-75 btn-success px-5 mt-2">Detarminantı Hesapla</button>
+            <button id="2x2determinantBtn" class="btn btn-lg w-75 btn-success px-5 mt-2">Determinantı Hesapla</button>
             <p class="text-secondary">Sonuç: <b class="det-results text-dark" id="2x2det"></b></p>
-          </div>
+          </form>
           <!-- Matris -1 End -->
 
 
           <!-- Matris -2 -->
-          <div class="col-6 d-flex flex-column align-items-center justify-content-between mt-4" style="height: 50vh;">
+          <form class="needs-validation col-6 d-flex flex-column align-items-center justify-content-between mt-4" style="height: 50vh;" novalidate>
             <h2 class="fw-medium text-dark text-center">3x3 Matris</h2>
 
             <!-- Row-1 -->
             <div class="px-5 d-flex gap-3">
               
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="3x3matrix1" id="3x3matrix1">
+                <input type="number" class="form-control" placeholder="matris" name="3x3matrix1" id="3x3matrix1" required>
                 <label for="3x3matrix1">1. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
 
               
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="3x3matrix2" id="3x3matrix2">
+                <input type="number" class="form-control" placeholder="matris" name="3x3matrix2" id="3x3matrix2" required>
                 <label for="3x3matrix2">2. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
 
               <div class="form-floating mb-3">
                 <input type="number" class="form-control" placeholder="matris"
-                name="3x3matrix3" id="3x3matrix3">
+                name="3x3matrix3" id="3x3matrix3" required>
                 <label for="3x3matrix3">3. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
 
             </div> 
@@ -115,20 +157,38 @@
 
               
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="3x3matrix4" id="3x3matrix4">
+                <input type="number" class="form-control" placeholder="matris" name="3x3matrix4" id="3x3matrix4" required>
                 <label for="3x3matrix4">4. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
 
               
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="3x3matrix5" id="3x3matrix5">
+                <input type="number" class="form-control" placeholder="matris" name="3x3matrix5" id="3x3matrix5" required>
                 <label for="3x3matrix5">5. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
 
               <div class="form-floating mb-3">
                 <input type="number" class="form-control" placeholder="matris"
-                name="3x3matrix6" id="3x3matrix6">
+                name="3x3matrix6" id="3x3matrix6" required>
                 <label for="3x3matrix6">6. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
 
             </div>
@@ -139,56 +199,98 @@
 
               
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="3x3matrix7" id="3x3matrix7">
+                <input type="number" class="form-control" placeholder="matris" name="3x3matrix7" id="3x3matrix7" required>
                 <label for="3x3matrix7">7. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
 
               
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="3x3matrix8" id="3x3matrix8">
+                <input type="number" class="form-control" placeholder="matris" name="3x3matrix8" id="3x3matrix8" required>
                 <label for="3x3matrix8">8. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
 
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="3x3matrix9" id="3x3matrix9">
+                <input type="number" class="form-control" placeholder="matris" name="3x3matrix9" id="3x3matrix9" required>
                 <label for="3x3matrix9">9. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
 
             </div>
             <!-- Row-3 End -->
 
-            <button type="button" id="3x3determinantBtn" class="btn btn-lg btn-success col-5 px-5 w-75 mt-2">Detarminantı Hesapla</button>
+            <button id="3x3determinantBtn" class="btn btn-lg btn-success col-5 px-5 w-75 mt-2">Determinantı Hesapla</button>
             <p class="text-secondary">Sonuç : <b class="det-results text-dark" id="3x3det"></b></p>
-          </div>
+          </form>
           <!-- Matris -2 End -->
         </div>
 
         <div class="container row text-center">
           <!-- Matris -3 -->
-          <div class="col-12 d-flex flex-column align-items-center justify-content-between mt-5" style="height: 60vh;">
+          <form class="needs-validation col-12 d-flex flex-column align-items-center justify-content-between mt-5" style="height: 60vh;">
             <h2 class="fw-medium text-dark text-center">4x4 Matris</h2>
 
             <!-- Row-1 -->
             <div class="px-5 d-flex gap-3">
               
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix1" id="4x4matrix1">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix1" id="4x4matrix1" required>
                 <label for="4x4matrix1">1. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
                 
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix2" id="4x4matrix2">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix2" id="4x4matrix2" required>
                 <label for="4x4matrix2">2. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
 
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix3" id="4x4matrix3">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix3" id="4x4matrix3" required>
                 <label for="4x4matrix3">3. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
 
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix4" id="4x4matrix4">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix4" id="4x4matrix4" required>
                 <label for="4x4matrix4">4. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
 
             </div> 
@@ -200,24 +302,48 @@
 
               
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix5" id="4x4matrix5">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix5" id="4x4matrix5" required>
                 <label for="4x4matrix5">5. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
 
               
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix6" id="4x4matrix6">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix6" id="4x4matrix6" required>
                 <label for="4x4matrix6">6. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
 
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix7" id="4x4matrix7">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix7" id="4x4matrix7" required>
                 <label for="4x4matrix7">7. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
 
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix8" id="4x4matrix8">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix8" id="4x4matrix8" required>
                 <label for="4x4matrix8">8. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
 
             </div>
@@ -228,24 +354,48 @@
 
               
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix9" id="4x4matrix9">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix9" id="4x4matrix9" required>
                 <label for="4x4matrix9">9. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
 
               
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix10" id="4x4matrix10">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix10" id="4x4matrix10" required>
                 <label for="4x4matrix10">10. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
 
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix11" id="4x4matrix11">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix11" id="4x4matrix11" required>
                 <label for="4x4matrix11">11. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
               
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix12" id="4x4matrix12">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix12" id="4x4matrix12" required>
                 <label for="4x4matrix12">12. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
 
             </div>
@@ -256,32 +406,56 @@
 
               
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix13" id="4x4matrix13">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix13" id="4x4matrix13" required>
                 <label for="4x4matrix13">13. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
 
               
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix14" id="4x4matrix14">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix14" id="4x4matrix14" required>
                 <label for="4x4matrix14">14. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
 
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix15" id="4x4matrix15">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix15" id="4x4matrix15" required>
                 <label for="4x4matrix15">15. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
 
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix16" id="4x4matrix16">
+                <input type="number" class="form-control" placeholder="matris" name="4x4matrix16" id="4x4matrix16" required>
                 <label for="4x4matrix16">16. Elemanı Giriniz</label>
+                <div class="valid-feedback">
+                  Başarılı!
+                </div>
+                <div class="invalid-feedback">
+                  Girdi Boş Olamaz!
+                </div>
               </div>
 
             </div>
             <!-- Row-4 End -->
 
-            <button type="button" id="4x4determinantBtn" class="btn btn-lg btn-success px-5 w-50 mt-2">Detarminantı Hesapla</button>
+            <button id="4x4determinantBtn" class="btn btn-lg btn-success px-5 w-50 mt-2">Determinantı Hesapla</button>
             <p class="text-secondary">Sonuç : <b class="det-results text-dark" id="4x4det"></b></p>
-          </div>
+          </form>
           <!-- Matris -3 End -->
         </div>
 
@@ -296,7 +470,7 @@
         <h2 class="h3 mb-3 fw-normal mt-5">Rastgele Sayı Oluşturucu</h2>
     
         <div class="form-floating">
-          <input type="number" class="form-control" id="randomText" placeholder="1-x arasında bir sayı girin">
+          <input type="number" class="form-control" id="randomText" placeholder="1-x arasında bir sayı girin" required>
           <label for="randomText">Oluşturulacak Maksimum Sayıyı Girin</label>
           <p class="fw-light text-secondary">Girdiğiniz sayı 1'den büyük olmalıdır.</p>
         </div>
@@ -351,7 +525,8 @@
 
         
         // "+" butonuna basıldığında para değişkenini pythona gönderen kod
-        $("#2x2determinantBtn").on("click",function(){
+        $("#2x2determinantBtn").on("click",function(e){
+            e.preventDefault()
             let sayi1 = $("#2x2matrix1").val();
             let sayi2 = $("#2x2matrix2").val();
             let sayi3 = $("#2x2matrix3").val();
@@ -362,7 +537,8 @@
             sayi4 = parseInt(sayi4);
             socket.emit("2x2determinant", [[sayi1,sayi2],[sayi3,sayi4]]);  
         })
-        $("#3x3determinantBtn").on("click",function(){
+        $("#3x3determinantBtn").on("click",function(e){
+            e.preventDefault()
             let sayi1 = $("#3x3matrix1").val();
             let sayi2 = $("#3x3matrix2").val();
             let sayi3 = $("#3x3matrix3").val();
@@ -383,7 +559,8 @@
             sayi9 = parseInt(sayi9);
             socket.emit("3x3determinant", [[sayi1,sayi2,sayi3],[sayi4,sayi5,sayi6],[sayi7,sayi8,sayi9]]);  
         })
-        $("#4x4determinantBtn").on("click",function(){
+        $("#4x4determinantBtn").on("click",function(e){
+            e.preventDefault()
             let sayi1 = $("#4x4matrix1").val();
             let sayi2 = $("#4x4matrix2").val();
             let sayi3 = $("#4x4matrix3").val();
@@ -473,4 +650,29 @@
       $('.det-results').removeClass('text-light');
     })
     </script>
+
+    <!-- Bootstrap Form Validation -->
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (() => {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+          form.addEventListener('click', event => {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+          }, false)
+        })
+      
+      })()
+    </script>
+
 </html>
