@@ -21,12 +21,16 @@
         <li class="nav-item">
           <a class="nav-link" data-bs-toggle="tab" href="#menu1">Random Number Generator</a>
         </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i id="activeTheme" class="fa-solid fa-sun"></i> Seçili Tema</a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item" id="lightTheme"><i class="fa-solid fa-sun"></i> Açık Tema</li>
+            <li class="dropdown-item" id="darkTheme"><i class="fa-solid fa-moon"></i> Koyu Tema</li>
+          </ul>
+        </li>
     </ul>
-  
-    <!-- Theme Change Button -->
-    <div class="fixed-bottom bottom-0 m-3 mb-5" style="max-height: 80px; max-width: 80px; min-width: 80px; min-height: 80px;">
-      <i id="themeChanger" class="fs-1 fa-solid fa-sun p-3 bg-primary-subtle rounded-5" ></i>
-    </div>
+
 
     <!-- Tab panes -->
     <div class="tab-content">
@@ -378,7 +382,7 @@
         
         <div class="container mt-4 px-5 col-3">
           <p class="text-secondary fw-medium mb-0">Sonuç Burada Gözükecek</p>
-          <div class="border border-dark border-1 rounded fw-medium text-dark d-flex align-items-center justify-content-center" id="randomSonuc" style="min-height: 5vh;">
+          <div class="border border-secondary border-1 rounded fw-medium text-dark d-flex align-items-center justify-content-center" id="randomSonuc" style="min-height: 5vh;">
           
           </div>
 
@@ -503,11 +507,32 @@
 
   <!-- Dark & Light Theme -->
   <script>
-    $('#themeChanger').on('click', () => {
-      $('body').toggleClass('bg-dark');
-      $('h2').toggleClass('text-white');
-      $('i.fa-solid.fa-sun').toggleClass('fa-moon');
-      
+    $('#darkTheme').on('click', () => {
+      // Change Body Color & Headings
+      $('body').addClass('bg-dark');
+      $('h2').addClass('text-white');
+
+      // Change Active Theme
+      $('#activeTheme').addClass('fa-moon');
+      $('#activeTheme').removeClass('fa-sun');
+
+      // Change Dropdown Menu
+      $('.dropdown-menu').addClass('dropdown-menu-dark');
+
+    })
+    
+    $('#lightTheme').on('click', () => {
+      // Change Body Color & Headings
+      $('body').removeClass('bg-dark');
+      $('h2').removeClass('text-white');
+
+      // Change Active Theme
+      $('#activeTheme').addClass('fa-sun');
+      $('#activeTheme').removeClass('fa-moon');
+
+      // Change Dropdown Menu
+      $('.dropdown-menu').removeClass('dropdown-menu-dark');
+
     })
   </script>
 </html>
