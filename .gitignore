@@ -1,2 +1,3 @@
-# Pyton virtual env. 
-/env
+
+venv
+__pycache__
