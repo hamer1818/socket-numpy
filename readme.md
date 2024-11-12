@@ -1,28 +1,59 @@
-# KURULUM
+# Matrix Calculator & Random Number Generator
 
-* `python -m venv venv` ile virtual environtment oluşturulduktan sonra `venv\Scripts\activate` ile aktif edilir.
+A web-based calculator application for matrix operations and random number generation built with Python, Socket.IO and modern frontend technologies.
 
-* Gerekli bileşenleri geri yükleme için `pip install -r requirements.txt`
+## Features
 
-* `python socket_handlers.py` komutu ile python dosyası çalıştırılır daha sonra index.htm dosyası bir tarayıcıda açılır.
+- Matrix determinant calculations:
+  - 2x2 matrices
+  - 3x3 matrices  
+  - 4x4 matrices
+- Random number generator with custom range
+- Dark/Light theme toggle
+- Modern responsive UI
+- Real-time calculations via WebSocket
 
-## Görüntüler:
-![image](https://i.hizliresim.com/cpu26pe.PNG)
+## Tech Stack
 
+- **Backend:**
+  - Python
+  - FastAPI
+  - Socket.IO
+  - NumPy
 
-![image](https://i.hizliresim.com/oafdwj5.PNG)
+- **Frontend:**
+  - HTML/CSS
+  - JavaScript
+  - Tailwind CSS
+  - jQuery
+  - Socket.IO Client
+  - Font Awesome
 
+## Installation
 
-![image](https://i.hizliresim.com/23fpc92.PNG)
+1. Create and activate virtual environment:
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+2. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+3. Run the server:
+```bash
+python main.py
+```
+4. Open `index.html` in your browser.
 
-Rastgele Sayı Oluşturucu:
-150 sayısını maksimum sayı olarak belirledim, siz istediğiniz sayıyı yazabilirsiniz.
-![image](https://i.hizliresim.com/3lm6qa6.PNG)
+## Screenshots
+### Dark Theme
+![Matrix Calculator](images/matrixCalcView.jpeg)
+![Random Number Generator](images/randomNumberView.jpeg)
+### Light Theme
+![Matrix Calculator](images/lightRandomNumberView.jpeg)
+![Random Number Generator](images/lightMatrixCalcView.jpeg)
 
+## License
 
-### Katkı:
-- Sonat Saygın İpek [@sonatipek](https://github.com/sonatipek "Sonat İpek GitHub Page")
-    - İki sayfaya da modern bir görünüm kazandırıldı.
-    - Koyu ve açık tema arasında geçiş özelliği eklendi.
-    - İnputlar sadece numara girilebilecek şekilde kısıtlandı
-    - İnputların fazla olmasıyla boş input gözükmediğinden dimanik kontrol eklendi
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

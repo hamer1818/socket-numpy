@@ -1,678 +1,631 @@
 <!DOCTYPE html>
 <html lang="tr">
-    <head>
-      <title>2x2 Matris</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Matrix calculator and random number generator tool"
+    />
+    <title>Matrix Calculator</title>
 
-      <!-- Bootstrap CDN CSS -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- Tailwind CDN CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-      <!-- Font Awesome -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-      <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-        
-    </head>
-    <body>
+    <script>
+      // Add dark mode configuration for Tailwind
+      tailwind.config = {
+        darkMode: "class",
+      };
 
-    <!-- Nav tabs -->
-    <ul class="container nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link active" data-bs-toggle="tab" href="#home">Matrix Determinant</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="tab" href="#menu1">Random Number Generator</a>
-        </li>
+      // Check for saved dark mode preference
+      if (
+        localStorage.getItem("dark-mode") === "true" ||
+        (!localStorage.getItem("dark-mode") &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i id="activeTheme" class="fa-solid fa-sun"></i> Seçili Tema</a>
-          <ul class="dropdown-menu">
-            <li class="dropdown-item" id="lightTheme"><i class="fa-solid fa-sun"></i> Açık Tema</li>
-            <li class="dropdown-item" id="darkTheme"><i class="fa-solid fa-moon"></i> Koyu Tema</li>
-          </ul>
-        </li>
-    </ul>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.js"
+      integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
+    <!-- Navbar -->
+    <nav class="bg-white dark:bg-gray-800 shadow-sm mb-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <div class="flex">
+            <a
+              href="#"
+              class="flex items-center text-xl font-semibold text-gray-800 dark:text-white"
+            >
+              <i class="fas fa-calculator mr-2"></i> Matrix Calculator
+            </a>
+          </div>
 
+          <div class="flex items-center">
+            <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+              <button
+                class="tab-btn text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                data-tab="matrix"
+              >
+                Matrix Determinant
+              </button>
+              <button
+                class="tab-btn text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                data-tab="random"
+              >
+                Random Generator
+              </button>
+            </div>
+
+            <!-- Theme Toggle -->
+            <button
+              id="theme-toggle"
+              class="ml-4 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+              <i class="fas fa-sun dark:hidden text-yellow-500"></i>
+              <i class="fas fa-moon hidden dark:block text-blue-400"></i>
+            </button>
+            <!-- github -->
+            <a
+              href="https://github.com/hamer1818/socket-numpy" target="_blank" rel="noopener noreferrer" class="ml-4 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700" title="Github">
+              <i class="fab fa-github dark:text-white"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
 
     <!-- Matris Calculators -->
-    <div class="tab-content">
-      <div class="tab-pane container active" id="home">  
-        
-        <div class="container row">
-          <!-- Matris -1 -->
-          <form class="col-6 d-flex flex-column align-items-center justify-content-between mt-4 needs-validation" style="height: 50vh;" novalidate>
-            <h2 class="fw-medium text-dark text-center">2x2 Matris</h2>
-
-            <!-- Row-1 -->
-            <div class="px-5 d-flex gap-3">
-              <!-- Matris 1 -->
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris 1" name="2x2matrix1" id="2x2matrix1" required>
-                <label for="2x2matrix1">1. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-
-              
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris 2" name="2x2matrix2" id="2x2matrix2" required>
-                <label for="2x2matrix2">2. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-
-            </div> 
-            <!-- Row-1 End -->
-
-
-            <!-- Row-2 -->
-            <div class="px-5 d-flex gap-3">
-
-              <!-- Matris 3 -->
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris 3" name="2x2matrix3" id="2x2matrix3" required>
-                <label for="2x2matrix3">3. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-
-              <!-- Matris 4 -->
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris 4" name="2x2matrix4" id="2x2matrix4" required>
-                <label for="2x2matrix4">4. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-
-            </div>
-            <!-- Row-2 End -->
-            <button id="2x2determinantBtn" class="btn btn-lg w-75 btn-success px-5 mt-2">Determinantı Hesapla</button>
-            <p class="text-secondary">Sonuç: <b class="det-results text-dark" id="2x2det"></b></p>
-          </form>
-          <!-- Matris -1 End -->
-
-
-          <!-- Matris -2 -->
-          <form class="needs-validation col-6 d-flex flex-column align-items-center justify-content-between mt-4" style="height: 50vh;" novalidate>
-            <h2 class="fw-medium text-dark text-center">3x3 Matris</h2>
-
-            <!-- Row-1 -->
-            <div class="px-5 d-flex gap-3">
-              
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="3x3matrix1" id="3x3matrix1" required>
-                <label for="3x3matrix1">1. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-
-              
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="3x3matrix2" id="3x3matrix2" required>
-                <label for="3x3matrix2">2. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris"
-                name="3x3matrix3" id="3x3matrix3" required>
-                <label for="3x3matrix3">3. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-
-            </div> 
-            <!-- Row-1 End -->
-
-
-            <!-- Row-2 -->
-            <div class="px-5 d-flex gap-3">
-
-              
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="3x3matrix4" id="3x3matrix4" required>
-                <label for="3x3matrix4">4. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-
-              
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="3x3matrix5" id="3x3matrix5" required>
-                <label for="3x3matrix5">5. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris"
-                name="3x3matrix6" id="3x3matrix6" required>
-                <label for="3x3matrix6">6. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-
-            </div>
-            <!-- Row-2 End -->
-
-            <!-- Row-3 -->
-            <div class="px-5 d-flex gap-3">
-
-              
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="3x3matrix7" id="3x3matrix7" required>
-                <label for="3x3matrix7">7. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-
-              
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="3x3matrix8" id="3x3matrix8" required>
-                <label for="3x3matrix8">8. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="3x3matrix9" id="3x3matrix9" required>
-                <label for="3x3matrix9">9. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-
-            </div>
-            <!-- Row-3 End -->
-
-            <button id="3x3determinantBtn" class="btn btn-lg btn-success col-5 px-5 w-75 mt-2">Determinantı Hesapla</button>
-            <p class="text-secondary">Sonuç : <b class="det-results text-dark" id="3x3det"></b></p>
-          </form>
-          <!-- Matris -2 End -->
+    <div
+      id="matrix-tab"
+      class="tab-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+    >
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- 2x2 Matrix -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+          <h2 class="text-xl font-semibold text-gray-800 dark:text-white mb-6">
+            2x2 Matrix
+          </h2>
+          <div class="grid grid-cols-2 gap-4 mb-6">
+            <input
+              id="2x2matrix1"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 1"
+            />
+            <input
+              id="2x2matrix2"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 2"
+            />
+            <input
+              id="2x2matrix3"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 3"
+            />
+            <input
+              id="2x2matrix4"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 4"
+            />
+          </div>
+          <button
+            id="2x2determinantBtn"
+            class="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md transition duration-200"
+          >
+            Calculate Determinant
+          </button>
+          <p class="mt-4 text-gray-600 dark:text-gray-400">
+            Result:
+            <span id="2x2det" class="font-bold text-gray-800 dark:text-white"
+              >0</span
+            >
+          </p>
         </div>
 
-        <div class="container row text-center">
-          <!-- Matris -3 -->
-          <form class="needs-validation col-12 d-flex flex-column align-items-center justify-content-between mt-5" style="height: 60vh;">
-            <h2 class="fw-medium text-dark text-center">4x4 Matris</h2>
-
-            <!-- Row-1 -->
-            <div class="px-5 d-flex gap-3">
-              
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix1" id="4x4matrix1" required>
-                <label for="4x4matrix1">1. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-                
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix2" id="4x4matrix2" required>
-                <label for="4x4matrix2">2. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix3" id="4x4matrix3" required>
-                <label for="4x4matrix3">3. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix4" id="4x4matrix4" required>
-                <label for="4x4matrix4">4. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-
-            </div> 
-            <!-- Row-1 End -->
-
-
-            <!-- Row-2 -->
-            <div class="px-5 d-flex gap-3">
-
-              
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix5" id="4x4matrix5" required>
-                <label for="4x4matrix5">5. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-
-              
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix6" id="4x4matrix6" required>
-                <label for="4x4matrix6">6. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix7" id="4x4matrix7" required>
-                <label for="4x4matrix7">7. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix8" id="4x4matrix8" required>
-                <label for="4x4matrix8">8. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-
-            </div>
-            <!-- Row-2 End -->
-
-            <!-- Row-3 -->
-            <div class="px-5 d-flex gap-3">
-
-              
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix9" id="4x4matrix9" required>
-                <label for="4x4matrix9">9. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-
-              
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix10" id="4x4matrix10" required>
-                <label for="4x4matrix10">10. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix11" id="4x4matrix11" required>
-                <label for="4x4matrix11">11. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-              
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix12" id="4x4matrix12" required>
-                <label for="4x4matrix12">12. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-
-            </div>
-            <!-- Row-3 End -->
-
-            <!-- Row-4 -->
-            <div class="px-5 d-flex gap-3">
-
-              
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix13" id="4x4matrix13" required>
-                <label for="4x4matrix13">13. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-
-              
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix14" id="4x4matrix14" required>
-                <label for="4x4matrix14">14. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix15" id="4x4matrix15" required>
-                <label for="4x4matrix15">15. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-
-              <div class="form-floating mb-3">
-                <input type="number" class="form-control" placeholder="matris" name="4x4matrix16" id="4x4matrix16" required>
-                <label for="4x4matrix16">16. Elemanı Giriniz</label>
-                <div class="valid-feedback">
-                  Başarılı!
-                </div>
-                <div class="invalid-feedback">
-                  Girdi Boş Olamaz!
-                </div>
-              </div>
-
-            </div>
-            <!-- Row-4 End -->
-
-            <button id="4x4determinantBtn" class="btn btn-lg btn-success px-5 w-50 mt-2">Determinantı Hesapla</button>
-            <p class="text-secondary">Sonuç : <b class="det-results text-dark" id="4x4det"></b></p>
-          </form>
-          <!-- Matris -3 End -->
+        <!-- 3x3 Matrix -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+          <h2 class="text-xl font-semibold text-gray-800 dark:text-white mb-6">
+            3x3 Matrix
+          </h2>
+          <div class="grid grid-cols-3 gap-4 mb-6">
+            <!-- 9 inputs for 3x3 matrix -->
+            <input
+              id="3x3matrix1"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 1"
+            />
+            <input
+              id="3x3matrix2"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 2"
+            />
+            <input
+              id="3x3matrix3"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 3"
+            />
+            <input
+              id="3x3matrix4"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 4"
+            />
+            <input
+              id="3x3matrix5"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 5"
+            />
+            <input
+              id="3x3matrix6"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 6"
+            />
+            <input
+              id="3x3matrix7"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 7"
+            />
+            <input
+              id="3x3matrix8"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 8"
+            />
+            <input
+              id="3x3matrix9"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 9"
+            />
+          </div>
+          <button
+            id="3x3determinantBtn"
+            class="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md transition duration-200"
+          >
+            Calculate Determinant
+          </button>
+          <p class="mt-4 text-gray-600 dark:text-gray-400">
+            Result:
+            <span id="3x3det" class="font-bold text-gray-800 dark:text-white"
+              >0</span
+            >
+          </p>
         </div>
 
+        <!-- 4x4 Matrix -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+          <h2 class="text-xl font-semibold text-gray-800 dark:text-white mb-6">
+            4x4 Matrix
+          </h2>
+          <div class="grid grid-cols-4 gap-4 mb-6">
+            <!-- 16 inputs for 4x4 matrix -->
+            <input
+              id="4x4matrix1"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 1"
+            />
+            <input
+              id="4x4matrix2"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 2"
+            />
+            <input
+              id="4x4matrix3"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 3"
+            />
+            <input
+              id="4x4matrix4"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 4"
+            />
+            <input
+              id="4x4matrix5"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 5"
+            />
+            <input
+              id="4x4matrix6"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 6"
+            />
+            <input
+              id="4x4matrix7"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 7"
+            />
+            <input
+              id="4x4matrix8"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 8"
+            />
+            <input
+              id="4x4matrix9"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 9"
+            />
+            <input
+              id="4x4matrix10"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 10"
+            />
+            <input
+              id="4x4matrix11"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 11"
+            />
+            <input
+              id="4x4matrix12"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 12"
+            />
+            <input
+              id="4x4matrix13"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 13"
+            />
+            <input
+              id="4x4matrix14"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 14"
+            />
+            <input
+              id="4x4matrix15"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 15"
+            />
+            <input
+              id="4x4matrix16"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Element 16"
+            />
+          </div>
+          <button
+            id="4x4determinantBtn"
+            class="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md transition duration-200"
+          >
+            Calculate Determinant
+          </button>
+          <p class="mt-4 text-gray-600 dark:text-gray-400">
+            Result:
+            <span id="4x4det" class="font-bold text-gray-800 dark:text-white"
+              >0</span
+            >
+          </p>
+        </div>
       </div>
     </div>
     <!-- Matris Calculators End -->
 
-    <!-- Random Number -->
-    <div class="tab-pane container fade w-100 m-auto" id="menu1">
-      <main class="m-auto col-6">
-
-        <h2 class="h3 mb-3 fw-normal mt-5">Rastgele Sayı Oluşturucu</h2>
-    
-        <div class="form-floating">
-          <input type="number" class="form-control" id="randomText" placeholder="1-x arasında bir sayı girin" required>
-          <label for="randomText">Oluşturulacak Maksimum Sayıyı Girin</label>
-          <p class="fw-light text-secondary">Girdiğiniz sayı 1'den büyük olmalıdır.</p>
+    <!-- Random Number Generator Section -->
+    <div
+      id="random-tab"
+      class="hidden tab-content max-w-xl mx-auto px-4 sm:px-6 lg:px-8 mt-8"
+    >
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+        <h2 class="text-xl font-semibold text-gray-800 dark:text-white mb-6">
+          Random Number Generator
+        </h2>
+        <div class="space-y-4">
+          <div>
+            <label
+              class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+            >
+              Enter Maximum Number
+            </label>
+            <input
+              id="randomText"
+              type="number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              placeholder="Enter a number greater than 1"
+            />
+          </div>
+          <button
+            id="randomBtn"
+            class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-md transition duration-200"
+          >
+            Generate Number
+          </button>
+          <div class="mt-4">
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Result:</p>
+            <div
+              id="randomSonuc"
+              class="w-full h-12 flex items-center justify-center border border-gray-300 dark:border-gray-600 rounded-md bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-white font-medium"
+            >
+              0
+            </div>
+          </div>
         </div>
-        
-        <button type="button" class="btn btn-success w-100 my-2" id="random">Sayıyı Oluştur</button>
-        
-      </main>
-      
-      <!-- Random Number Result -->
-      <div class="container mt-4 px-5 col-3">
-        <p class="text-secondary fw-medium mb-0">Sonuç Burada Gözükecek</p>
-        <div class="border border-secondary border-1 rounded fw-medium text-dark d-flex align-items-center justify-content-center" id="randomSonuc" style="min-height: 5vh;"></div>
       </div>
-      <!-- Random Number Result End -->
-
     </div>
-    <!-- Random Number End -->
 
-   
-
-
-
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-gray-800 shadow-sm mt-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <p class="text-sm text-gray-600 dark:text-gray-400 text-center">
+          &copy; 2021 Matrix Calculator. All rights reserved. Developed by
+          <a
+            href="https://github.com/hamer1818"
+            class="text-blue-500 hover:underline"
+            >Hamza ORTATEPE</a
+          >
+        </p>
+      </div>
+    </footer>
 
     <!-- Bootstrap CDN JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
   </body>
-  <script src="https://cdn.socket.io/3.1.3/socket.io.min.js" integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh" crossorigin="anonymous"></script>
-<script >
-    $( document ).ready(function() {
-        console.log( "ready!" );
-        
+  <script
+    src="https://cdn.socket.io/3.1.3/socket.io.min.js"
+    integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh"
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    $(document).ready(function () {
+      console.log("ready!");
 
-        const socket = io("http://localhost:8081",{transports: ["websocket", "polling", "flashsocket"] ,path:"/ws/socket.io"});
-        // "+" butonuna basıldığında para değişkenini 1 arttıran kodu dinler
-        socket.on("2x2determinant",data=> { 
-                console.log(data); 
-                $("#2x2det").html(data);
-        });
-        socket.on("3x3determinant",data=> { 
-                console.log(data); 
-                $("#3x3det").html(data);
-        });
-        socket.on("4x4determinant",data=> { 
-                console.log(data); 
-                $("#4x4det").html(data);
-        });
-        socket.on("random",data=> { 
-                console.log(data); 
-                $("#randomSonuc").html(data);
-        })
+      const socket = io("http://localhost:8081", {
+        transports: ["websocket", "polling", "flashsocket"],
+        path: "/ws/socket.io",
+      });
+      // Socket bağlantı durumunu kontrol et
+      // Socket bağlantı durumunu kontrol et
+      socket.on("connect", () => {
+        console.log("Socket.io connected!");
+      });
 
+      socket.on("connect_error", (error) => {
+        console.error("Socket.io connection error:", error);
+      });
 
-        
-        // "+" butonuna basıldığında para değişkenini pythona gönderen kod
-        $("#2x2determinantBtn").on("click",function(e){
-            e.preventDefault()
-            let sayi1 = $("#2x2matrix1").val();
-            let sayi2 = $("#2x2matrix2").val();
-            let sayi3 = $("#2x2matrix3").val();
-            let sayi4 = $("#2x2matrix4").val();
-            sayi1 = parseInt(sayi1);
-            sayi2 = parseInt(sayi2);
-            sayi3 = parseInt(sayi3);
-            sayi4 = parseInt(sayi4);
-            socket.emit("2x2determinant", [[sayi1,sayi2],[sayi3,sayi4]]);  
-        })
-        $("#3x3determinantBtn").on("click",function(e){
-            e.preventDefault()
-            let sayi1 = $("#3x3matrix1").val();
-            let sayi2 = $("#3x3matrix2").val();
-            let sayi3 = $("#3x3matrix3").val();
-            let sayi4 = $("#3x3matrix4").val();
-            let sayi5 = $("#3x3matrix5").val();
-            let sayi6 = $("#3x3matrix6").val();
-            let sayi7 = $("#3x3matrix7").val();
-            let sayi8 = $("#3x3matrix8").val();
-            let sayi9 = $("#3x3matrix9").val();
-            sayi1 = parseInt(sayi1);
-            sayi2 = parseInt(sayi2);
-            sayi3 = parseInt(sayi3);
-            sayi4 = parseInt(sayi4);
-            sayi5 = parseInt(sayi5);
-            sayi6 = parseInt(sayi6);
-            sayi7 = parseInt(sayi7);
-            sayi8 = parseInt(sayi8);
-            sayi9 = parseInt(sayi9);
-            socket.emit("3x3determinant", [[sayi1,sayi2,sayi3],[sayi4,sayi5,sayi6],[sayi7,sayi8,sayi9]]);  
-        })
-        $("#4x4determinantBtn").on("click",function(e){
-            e.preventDefault()
-            let sayi1 = $("#4x4matrix1").val();
-            let sayi2 = $("#4x4matrix2").val();
-            let sayi3 = $("#4x4matrix3").val();
-            let sayi4 = $("#4x4matrix4").val();
-            let sayi5 = $("#4x4matrix5").val();
-            let sayi6 = $("#4x4matrix6").val();
-            let sayi7 = $("#4x4matrix7").val();
-            let sayi8 = $("#4x4matrix8").val();
-            let sayi9 = $("#4x4matrix9").val();
-            let sayi10 = $("#4x4matrix10").val();
-            let sayi11 = $("#4x4matrix11").val();
-            let sayi12 = $("#4x4matrix12").val();
-            let sayi13 = $("#4x4matrix13").val();
-            let sayi14 = $("#4x4matrix14").val();
-            let sayi15 = $("#4x4matrix15").val();
-            let sayi16 = $("#4x4matrix16").val();
-            sayi1 = parseInt(sayi1);
-            sayi2 = parseInt(sayi2);
-            sayi3 = parseInt(sayi3);
-            sayi4 = parseInt(sayi4);
-            sayi5 = parseInt(sayi5);
-            sayi6 = parseInt(sayi6);
-            sayi7 = parseInt(sayi7);
-            sayi8 = parseInt(sayi8);
-            sayi9 = parseInt(sayi9);
-            sayi10 = parseInt(sayi10);
-            sayi11 = parseInt(sayi11);
-            sayi12 = parseInt(sayi12);
-            sayi13 = parseInt(sayi13);
-            sayi14 = parseInt(sayi14);
-            sayi15 = parseInt(sayi15);
-            sayi16 = parseInt(sayi16);
-            socket.emit("4x4determinant", [[sayi1,sayi2,sayi3,sayi4],[sayi5,sayi6,sayi7,sayi8],[sayi9,sayi10,sayi11,sayi12],[sayi13,sayi14,sayi15,sayi16]]);
+      // Event listeners
+      socket.on("2x2determinant", (data) => {
+        console.log("2x2 determinant result:", data);
+        $("#2x2det").text(data);
+      });
 
+      socket.on("3x3determinant", (data) => {
+        console.log("3x3 determinant result:", data);
+        $("#3x3det").text(data);
+      });
 
-        })
+      socket.on("4x4determinant", (data) => {
+        console.log("4x4 determinant result:", data);
+        $("#4x4det").text(data);
+      });
 
-        $("#random").on("click",function(){
-            randomSayi = $("#randomText").val();
-            randomSayi = parseInt(randomSayi);
-            socket.emit("random", randomSayi);
-        })
+      socket.on("random", (data) => {
+        console.log("Random number generated:", data);
+        $("#randomSonuc").text(data);
+      });
+
+      // Click handlers
+      $("#2x2determinantBtn").on("click", function (e) {
+        e.preventDefault();
+        const matrix = [
+          [
+            Number($("#2x2matrix1").val()) || 0,
+            Number($("#2x2matrix2").val()) || 0,
+          ],
+          [
+            Number($("#2x2matrix3").val()) || 0,
+            Number($("#2x2matrix4").val()) || 0,
+          ],
+        ];
+        console.log("Sending 2x2 matrix:", matrix);
+        socket.emit("2x2determinant", matrix);
+      });
+
+      $("#3x3determinantBtn").on("click", function (e) {
+        e.preventDefault();
+        const matrix2 = [
+          [
+            Number($("#3x3matrix1").val()) || 0,
+            Number($("#3x3matrix2").val()) || 0,
+            Number($("#3x3matrix3").val()) || 0,
+          ],
+          [
+            Number($("#3x3matrix4").val()) || 0,
+            Number($("#3x3matrix5").val()) || 0,
+            Number($("#3x3matrix6").val()) || 0,
+          ],
+          [
+            Number($("#3x3matrix7").val()) || 0,
+            Number($("#3x3matrix8").val()) || 0,
+            Number($("#3x3matrix9").val()) || 0,
+          ],
+        ];
+        console.log("Sending 3x3 matrix:", matrix2);
+        socket.emit("3x3determinant", matrix2);
+      });
+      $("#4x4determinantBtn").on("click", function (e) {
+        e.preventDefault();
+        const matrix3 = [
+          [
+            Number($("#4x4matrix1").val()) || 0,
+            Number($("#4x4matrix2").val()) || 0,
+            Number($("#4x4matrix3").val()) || 0,
+            Number($("#4x4matrix4").val()) || 0,
+          ],
+          [
+            Number($("#4x4matrix5").val()) || 0,
+            Number($("#4x4matrix6").val()) || 0,
+            Number($("#4x4matrix7").val()) || 0,
+            Number($("#4x4matrix8").val()) || 0,
+          ],
+          [
+            Number($("#4x4matrix9").val()) || 0,
+            Number($("#4x4matrix10").val()) || 0,
+            Number($("#4x4matrix11").val()) || 0,
+            Number($("#4x4matrix12").val()) || 0,
+          ],
+          [
+            Number($("#4x4matrix13").val()) || 0,
+            Number($("#4x4matrix14").val()) || 0,
+            Number($("#4x4matrix15").val()) || 0,
+            Number($("#4x4matrix16").val()) || 0,
+          ],
+        ];
+        console.log("Sending 4x4 matrix:", matrix3);
+        socket.emit("4x4determinant", matrix3);
+      });
+
+      $("#randomBtn").on("click", function () {
+        const max = Number($("#randomText").val()) || 0;
+        console.log("Generating random number with max:", max);
+        socket.emit("random", max);
+      });
     });
-    
-  </script>  
+  </script>
 
   <!-- Dark & Light Theme -->
   <script>
-    $('#darkTheme').on('click', () => {
-      // Change Body Color & Headings
-      $('body').addClass('bg-dark');
-      $('h2').addClass('text-white');
+    // Theme toggle functionality
+    const themeToggle = document.getElementById("theme-toggle");
+    const html = document.documentElement;
 
-      // Change Active Theme
-      $('#activeTheme').addClass('fa-moon');
-      $('#activeTheme').removeClass('fa-sun');
+    // Function to update theme and save preference
+    function updateTheme(isDark) {
+      if (isDark) {
+        html.classList.add("dark");
+        localStorage.setItem("dark-mode", "true");
+      } else {
+        html.classList.remove("dark");
+        localStorage.setItem("dark-mode", "false");
+      }
+    }
 
-      // Change Dropdown Menu
-      $('.dropdown-menu').addClass('dropdown-menu-dark');
+    // Theme toggle event listener
+    themeToggle.addEventListener("click", () => {
+      const isDark = !html.classList.contains("dark");
+      updateTheme(isDark);
+    });
 
-      // Change Result Text
-      $('#randomSonuc').removeClass('text-dark');
-      $('#randomSonuc').addClass('text-light');
+    // Initialize theme based on saved preference or system setting
+    const savedTheme = localStorage.getItem("dark-mode");
+    if (
+      savedTheme === "true" ||
+      (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      updateTheme(true);
+    } else {
+      updateTheme(false);
+    }
 
-      // Change Result Text
-      $('.det-results').removeClass('text-dark');
-      $('.det-results').addClass('text-light');
-      
-    })
-    
-    $('#lightTheme').on('click', () => {
-      // Change Body Color & Headings
-      $('body').removeClass('bg-dark');
-      $('h2').removeClass('text-white');
-      
-      // Change Active Theme
-      $('#activeTheme').addClass('fa-sun');
-      $('#activeTheme').removeClass('fa-moon');
-      
-      // Change Dropdown Menu
-      $('.dropdown-menu').removeClass('dropdown-menu-dark');
-      
-      // Change Result Text
-      $('#randomSonuc').removeClass('text-light');
+    // Tab switching functionality
+    const tabBtns = document.querySelectorAll(".tab-btn");
+    const tabContents = document.querySelectorAll(".tab-content");
 
-      // Change Result Text
-      $('.det-results').removeClass('text-light');
-    })
-    </script>
+    // Function to handle tab switching
+    function switchTab(tabName) {
+      // Remove active state from all tabs
+      tabBtns.forEach((btn) => {
+        btn.classList.remove("text-gray-900", "dark:text-white");
+        btn.classList.add("text-gray-500", "dark:text-gray-400");
+      });
 
-    <!-- Bootstrap Form Validation -->
-    <script>
-      // Example starter JavaScript for disabling form submissions if there are invalid fields
-      (() => {
-        'use strict'
+      // Hide all tab contents
+      tabContents.forEach((content) => {
+        content.classList.add("hidden");
+      });
 
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        const forms = document.querySelectorAll('.needs-validation')
+      // Activate selected tab
+      const activeBtn = document.querySelector(`[data-tab="${tabName}"]`);
+      activeBtn.classList.remove("text-gray-500", "dark:text-gray-400");
+      activeBtn.classList.add("text-gray-900", "dark:text-white");
 
-        // Loop over them and prevent submission
-        Array.from(forms).forEach(form => {
-          form.addEventListener('click', event => {
+      // Show selected tab content
+      document.getElementById(`${tabName}-tab`).classList.remove("hidden");
+
+      // Save active tab to localStorage
+      localStorage.setItem("active-tab", tabName);
+    }
+
+    // Add click handlers to tabs
+    tabBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        switchTab(btn.dataset.tab);
+      });
+    });
+
+    // Initialize active tab from localStorage or default to first tab
+    const savedTab =
+      localStorage.getItem("active-tab") || tabBtns[0]?.dataset.tab;
+    if (savedTab) {
+      switchTab(savedTab);
+    }
+  </script>
+
+  <!-- Bootstrap Form Validation -->
+  <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (() => {
+      "use strict";
+
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      const forms = document.querySelectorAll(".needs-validation");
+
+      // Loop over them and prevent submission
+      Array.from(forms).forEach((form) => {
+        form.addEventListener(
+          "click",
+          (event) => {
             if (!form.checkValidity()) {
-              event.preventDefault()
-              event.stopPropagation()
+              event.preventDefault();
+              event.stopPropagation();
             }
 
-            form.classList.add('was-validated')
-          }, false)
-        })
-      
-      })()
-    </script>
-
+            form.classList.add("was-validated");
+          },
+          false
+        );
+      });
+    })();
+  </script>
 </html>
